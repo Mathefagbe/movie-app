@@ -14,10 +14,11 @@ class PopularWidget extends StatefulWidget {
 
 class _PopularWidgetState extends State<PopularWidget> {
   late Future<PopularMovies> popularmovie;
+  MoviesApi moviesApi = MoviesApi();
   @override
   void initState() {
     super.initState();
-    popularmovie = MoviesApi().getpopular();
+    popularmovie =moviesApi.getpopular();
   }
 
   @override

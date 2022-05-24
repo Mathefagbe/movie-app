@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movie_app/constants/strings.dart';
 import 'package:movie_app/models/popularmovies.dart';
-import 'package:movie_app/models/trending.dart';
-import 'package:movie_app/models/upcoming.dart';
 
 class MoviesApi {
   Future<PopularMovies> getpopular() async {
@@ -23,7 +21,7 @@ class MoviesApi {
     return popularmovies;
   }
 
-  Future<Upcoming> getupcoming() async {
+  Future<PopularMovies> getupcoming() async {
     var upcoming;
 
     try {
@@ -31,7 +29,7 @@ class MoviesApi {
       if (response.statusCode == 200) {
         var jsonstring = response.body;
         var jsonMap = json.decode(jsonstring);
-        upcoming = Upcoming.fromJson(jsonMap);
+        upcoming = PopularMovies.fromJson(jsonMap);
       }
     } catch (e) {
       throw Exception('Failed to load data');
@@ -39,7 +37,7 @@ class MoviesApi {
     return upcoming;
   }
 
-  Future<Trending> gettrending() async {
+  Future<PopularMovies> gettrending() async {
     var trending;
 
     try {
@@ -47,7 +45,7 @@ class MoviesApi {
       if (response.statusCode == 200) {
         var jsonstring = response.body;
         var jsonMap = json.decode(jsonstring);
-        trending = Trending.fromJson(jsonMap);
+        trending = PopularMovies.fromJson(jsonMap);
       }
     } catch (e) {
       throw Exception('Failed to load data');

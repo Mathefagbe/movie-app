@@ -54,7 +54,12 @@ class _PopularDetailScreenState extends State<PopularDetailScreen> {
                       IconButton(
                         color: Colors.red,
                         onPressed: () {
-                          setState(() {});
+                          setState(() {
+                            if (favourite.contains(widget.detail)) {
+                            } else {
+                              favourite.add(widget.detail);
+                            }
+                          });
                         },
                         icon: Icon(
                           favourite.contains(widget.detail)

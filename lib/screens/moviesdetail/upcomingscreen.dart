@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constants/strings.dart';
 import 'package:movie_app/lists/upcominglist.dart';
-
-import '../../models/upcoming.dart';
+import 'package:movie_app/models/popularmovies.dart';
 
 class UpcomingDetail extends StatefulWidget {
   const UpcomingDetail({required this.detail});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constants/strings.dart';
-
-import '../../models/trending.dart';
+import 'package:movie_app/lists/upcominglist.dart';
+import 'package:movie_app/models/popularmovies.dart';
 
 class TrendingDetails extends StatefulWidget {
   const TrendingDetails({required this.detail});
@@ -54,9 +54,18 @@ class _TrendingDetailsState extends State<TrendingDetails> {
                       ),
                       IconButton(
                         color: Colors.red,
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            if (favourite.contains(widget.detail)) {
+                            } else {
+                              favourite.add(widget.detail);
+                            }
+                          });
+                        },
                         icon: Icon(
-                          isfavourit ? Icons.favorite_border : Icons.favorite,
+                          favourite.contains(widget.detail)
+                              ? Icons.favorite
+                              : Icons.favorite_border,
                           size: 30,
                         ),
                       )

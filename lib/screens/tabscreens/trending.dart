@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constants/strings.dart';
-import 'package:movie_app/models/trending.dart';
+import 'package:movie_app/models/popularmovies.dart';
+
 import 'package:movie_app/screens/moviesdetail/trendingscreen.dart';
 import 'package:movie_app/services/api_manger.dart';
 import 'package:movie_app/widget/errorwidegt.dart';
@@ -13,7 +14,7 @@ class TrendingWidget extends StatefulWidget {
 }
 
 class _TrendingWidgetState extends State<TrendingWidget> {
-  late Future<Trending> trend;
+  late Future<PopularMovies> trend;
 
   @override
   void initState() {
@@ -23,7 +24,7 @@ class _TrendingWidgetState extends State<TrendingWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Trending>(
+    return FutureBuilder<PopularMovies>(
         future: trend,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
